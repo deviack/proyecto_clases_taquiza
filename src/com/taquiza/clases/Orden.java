@@ -11,4 +11,12 @@ package com.taquiza.clases;
  */
 public class Orden {
     
+    private Taco[] tacos;
+    
+    
+    public Taco[] Mostrar() {
+        return tacos;
+    }
+    
 }
+

@@ -17,6 +17,7 @@ public class Taco extends Alimento {
         private int precio;
         private boolean verduras;
         private boolean salsa;
+        private static int numero_de_tacos = 0;
      
         
          public Taco() {
@@ -28,6 +29,7 @@ public class Taco extends Alimento {
         this.precio = precio;
         this.verduras = verduras;
         this.salsa = salsa;
+        numero_de_tacos++;
        
    
     }
@@ -92,11 +94,27 @@ public class Taco extends Alimento {
 
     @Override
     public void engordar() {
-    System.out.println("Ja, ya engordaste :3");
+    System.out.println("Si te comiste los tacos, ya engordaste :3");
     
     }
-    //CREAMOS DOS TAQUITOS
-    Taco taco1 = new Taco("con mucho sabor","bistek", 12, true, true);
-    Taco taco2 = new Taco("con mucho sabor","pastor", 15, true, false);
+    //CREAMOS DOS TAQUITOS QUE NO SE ESTARÀN USANDO AÚN
+   //  Taco taco1 = new Taco("con mucho sabor","bistek", 12, true, true);
+   //  Taco taco2 = new Taco("con mucho sabor","pastor", 15, true, false);
+
+    /**
+     * @return the numero_de_tacos
+     */
+    public int getNumero_de_tacos() {
+        return numero_de_tacos;
+    }
+
+    /**
+     * @param numero_de_tacos the numero_de_tacos to set
+     */
+    public void setNumero_de_tacos(int numero_de_tacos) {
+        this.numero_de_tacos = numero_de_tacos;
+    }
+    
+    
     
 }

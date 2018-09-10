@@ -23,21 +23,25 @@ import java.util.Scanner;
  */
 public class Cpersistencia {
     
-    public static void escribirArchivo() {
+    public static void escribirArchivo(ArrayList listaTacos ) {
 		FileWriter escritor = null;//creamos el escritor tipo escritor
 		try {
 			
                         escritor = new FileWriter("Taquitos.txt",false); //si está lo agarra y si no lo crea. Lo manda a raíz del fichero
 			//crea un buffer o flujo intermedio antes de escribir directamente en el archivo
 			BufferedWriter escbuffer = new BufferedWriter(escritor); //lo guardamos en buffer
-			//for (Pizza pizza : lista) {//for each pa recorrer la lista
-				//escribe datos a partir del último dato escrito (cargado en buffer)
-			//	escbuffer.write(pizza.getNombre()+"-"+Arrays.toString(pizza.getIngredientes())+"-"+
-                          //             pizza.getPrecio()+"-"+pizza.isTatemada()+"\n");//Array.toString es un método de java para convertir a String
-			//}
-                        escbuffer.write("Los taquitos son amor infinito. ");//puedo poner la orden del usuario
-			//cierra el buffer intermedio
-			escbuffer.close();
+  
+                        for(int j = 0; j< listaTacos.size();j++){//Este contador empieza en 0 porque no es para mostrar, sólo contar
+                                  Taco taco = (Taco) listaTacos.get(j);
+                                 //System.out.println("Taco de: "+taco.getNombre()+". \n");
+                                 escbuffer.write("Taco no. " + (j+1) + " es de " +taco.getNombre()+". \n");//puedo poner la orden del usuario
+                                 //System.out.println("Taco número " + j+1 );//se le suma uno porque el contador empieza en 0
+                       }   
+
+
+
+                        //cierra el buffer intermedio
+			escbuffer.close();  
 			System.out.println("Se escribió correctamente su orden");
 
 		} catch (IOException e) {//esto es pa cachar el error
@@ -61,7 +65,8 @@ public class Cpersistencia {
                 String linea;
                 while((linea=br.readLine())!=null)
                 System.out.println(linea);
-         
+                lector.close();
+                
         }catch(Exception e){
             e.printStackTrace();
          } 
